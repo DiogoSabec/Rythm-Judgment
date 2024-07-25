@@ -43,10 +43,10 @@ Rythm Judgement é um jogo roguelike, visto de cima, com várias habilidades ún
 
 ### Gameplay e Mecânicas
 - Vampire Survivors
-![Vampire survivors Logo](img\1.png)
-![Vampire survivors Gameplay](img\2.png)
+![Vampire survivors Logo](img/1.png)
+![Vampire survivors Gameplay](img/2.png)
 
 ### História e Lore
 - Berserk
-![Berserk Volume 1](img\3.png)
-![Berserk Eclipse](img\4.png)
+![Berserk Volume 1](img/3.png)
+![Berserk Eclipse](img/4.png)
