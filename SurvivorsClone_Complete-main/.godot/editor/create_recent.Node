@@ -1,8 +1,8 @@
+Button
 AnimatedSprite2D
 AudioStreamPlayer
 Label
 ColorRect
-Button
 GridContainer
 TextureRect
 TextureProgressBar
@@ -12,4 +12,3 @@ Panel
 Control
 CanvasLayer
 CollisionShape2D
-Area2D

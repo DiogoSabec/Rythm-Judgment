@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dncgepmkc4jf4"]
+[gd_scene load_steps=20 format=3 uid="uid://dncgepmkc4jf4"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_37q80"]
 [ext_resource type="Texture2D" uid="uid://doa3scrwgj2oq" path="res://Textures/Player/player_sprite.png" id="1_jefax"]
@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://bnv76nm5171dn" path="res://Audio/SoundEffect/Victory.wav" id="10_rwm3p"]
 [ext_resource type="AudioStream" uid="uid://ca6physj6mqei" path="res://Audio/SoundEffect/Lose.ogg" id="11_28kfi"]
 [ext_resource type="PackedScene" uid="uid://b7c7gsdx2rkjm" path="res://Utility/basic_button.tscn" id="12_i8esf"]
+[ext_resource type="PackedScene" uid="uid://3rmf6o4v314s" path="res://Player/GUI/pause.tscn" id="14_erub4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nffdp"]
 radius = 4.0
@@ -30,8 +31,10 @@ radius = 50.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_6vwp8"]
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_mask = 0
 motion_mode = 1
 script = ExtResource("1_37q80")
+experience = 765
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_jefax")
@@ -240,6 +243,10 @@ offset_top = 40.0
 offset_right = 208.0
 offset_bottom = 56.0
 columns = 10
+
+[node name="Pause" parent="GUILayer/GUI" instance=ExtResource("14_erub4")]
+visible = false
+layout_mode = 1
 
 [connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
 [connection signal="timeout" from="Attack/IceSpearTimer" to="." method="_on_ice_spear_timer_timeout"]
