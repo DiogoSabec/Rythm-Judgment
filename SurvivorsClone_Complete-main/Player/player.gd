@@ -1,13 +1,13 @@
 extends CharacterBody2D
 
 
-var movement_speed = 40.0
+var movement_speed = 80.0
 var hp = 80
 var maxhp = 80
 var last_movement = Vector2.UP
 var time = 0
 
-var experience = 0
+@export var experience = 0
 var experience_level = 1
 var collected_experience = 0
 
@@ -78,6 +78,8 @@ var enemy_close = []
 signal playerdeath
 
 func _ready():
+	
+	
 	upgrade_character("icespear1")
 	attack()
 	set_expbar(experience, calculate_experiencecap())
@@ -135,7 +137,7 @@ func _on_ice_spear_attack_timer_timeout():
 	if icespear_ammo > 0:
 		var icespear_attack = iceSpear.instantiate()
 		icespear_attack.position = position
-		icespear_attack.target = get_random_target()
+		icespear_attack.target = get_nearest_target()
 		icespear_attack.level = icespear_level
 		add_child(icespear_attack)
 		icespear_ammo -= 1
@@ -174,10 +176,19 @@ func spawn_javelin():
 	for i in get_javelins:
 		if i.has_method("update_javelin"):
 			i.update_javelin()
-
-func get_random_target():
+func get_nearest_target():
 	if enemy_close.size() > 0:
-		return enemy_close.pick_random().global_position
+		var nearest_enemy = null
+		var nearest_distance = INF
+		var player_position = global_position  # Assumindo que este script está anexado ao jogador
+		
+		for enemy in enemy_close:
+			var distance = player_position.distance_to(enemy.global_position)
+			if distance < nearest_distance:
+				nearest_distance = distance
+				nearest_enemy = enemy
+		
+		return nearest_enemy.global_position
 	else:
 		return Vector2.UP
 
@@ -374,3 +385,25 @@ func death():
 func _on_btn_menu_click_end():
 	get_tree().paused = false
 	var _level = get_tree().change_scene_to_file("res://TitleScreen/menu.tscn")
+
+
+
+
+#parte do menu do jogador# Parte do menu do jogador
+@onready var pause = $GUILayer/GUI/Pause
+
+func _input(event):
+	if event.is_action_pressed("ui_cancel"): 
+		if not pause.is_visible():
+			_pause_game()
+		else:
+			_resume_game()
+
+func _pause_game():
+	pause.visible = true
+	Engine.time_scale = 0
+
+func _resume_game():
+	pause.visible = false
+	Engine.time_scale = 5
+

@@ -1,5 +1,5 @@
-res://World/world.tscn
 res://Player/player.tscn
+res://World/world.tscn
 res://Enemy/enemy_kobold_weak.tscn
 res://Utility/enemy_spawner.tscn
 res://Enemy/enemy_kobold_strong.tscn
@@ -15,3 +15,11 @@ res://Player/GUI/item_container.tscn
 res://Utility/upgrade_db.tscn
 res://Objects/experience_gem.tscn
 res://Player/Attack/javelin.tscn
+res://Player/player.gd
+res://TitleScreen/pause.tscn
+res://TitleScreen/pause.gd
+res://Player/GUI/pause.tscn
+res://Player/GUI/pause.gd
+res://Player/Attack/javelin.gd
+res://Player/Attack/tornado.tscn
+res://Objects/experience_gem.gd

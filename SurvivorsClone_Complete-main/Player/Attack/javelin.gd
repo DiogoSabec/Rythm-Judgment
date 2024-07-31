@@ -90,7 +90,7 @@ func add_paths():
 	target_array.clear()
 	var counter = 0
 	while counter < paths:
-		var new_path = player.get_random_target()
+		var new_path = player.get_nearest_target()
 		target_array.append(new_path)
 		counter += 1
 	enable_attack(true)

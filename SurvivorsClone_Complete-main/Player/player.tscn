@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://dncgepmkc4jf4"]
+[gd_scene load_steps=20 format=3 uid="uid://dncgepmkc4jf4"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_37q80"]
 [ext_resource type="Texture2D" uid="uid://doa3scrwgj2oq" path="res://Textures/Player/player_sprite.png" id="1_jefax"]
 [ext_resource type="PackedScene" uid="uid://xy3cvpwdy828" path="res://Utility/hurt_box.tscn" id="3_gs51i"]
 [ext_resource type="Texture2D" uid="uid://dx7xx6vfahxlq" path="res://Textures/GUI/exp_background.png" id="4_pbpj5"]
 [ext_resource type="Texture2D" uid="uid://dlx33roiu0vlj" path="res://Textures/GUI/exp_progress.png" id="5_5ive2"]
+[ext_resource type="FontFile" uid="uid://1dcjvvw52hll" path="res://Font/Wonderbar.ttf" id="6_mey0s"]
 [ext_resource type="FontFile" uid="uid://cb4e8g30xxp5u" path="res://Font/tenderness.otf" id="6_okx7u"]
 [ext_resource type="AudioStream" uid="uid://ul8hunj8tl2t" path="res://Audio/SoundEffect/levelup.ogg" id="7_wl7d2"]
 [ext_resource type="Texture2D" uid="uid://cj6a5rhwov14" path="res://Textures/GUI/healthbar.png" id="8_flesq"]
@@ -12,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://bnv76nm5171dn" path="res://Audio/SoundEffect/Victory.wav" id="10_rwm3p"]
 [ext_resource type="AudioStream" uid="uid://ca6physj6mqei" path="res://Audio/SoundEffect/Lose.ogg" id="11_28kfi"]
 [ext_resource type="PackedScene" uid="uid://b7c7gsdx2rkjm" path="res://Utility/basic_button.tscn" id="12_i8esf"]
+[ext_resource type="PackedScene" uid="uid://3rmf6o4v314s" path="res://Player/GUI/pause.tscn" id="14_erub4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nffdp"]
 radius = 4.0
@@ -29,8 +31,10 @@ radius = 50.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_6vwp8"]
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_mask = 0
 motion_mode = 1
 script = ExtResource("1_37q80")
+experience = 765
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_jefax")
@@ -118,10 +122,11 @@ texture_progress = ExtResource("5_5ive2")
 [node name="lbl_level" type="Label" parent="GUILayer/GUI/ExperienceBar"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 540.0
-offset_right = 640.0
-offset_bottom = 20.0
-theme_override_fonts/font = ExtResource("6_okx7u")
+offset_left = 542.0
+offset_top = -3.0
+offset_right = 638.0
+offset_bottom = 24.0
+theme_override_fonts/font = ExtResource("6_mey0s")
 theme_override_font_sizes/font_size = 16
 text = "Level: 1"
 horizontal_alignment = 1
@@ -153,7 +158,7 @@ offset_bottom = 300.0
 layout_mode = 0
 offset_right = 200.0
 offset_bottom = 50.0
-theme_override_fonts/font = ExtResource("6_okx7u")
+theme_override_fonts/font = ExtResource("6_mey0s")
 text = "Level Up !"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -174,7 +179,6 @@ volume_db = -10.0
 [node name="DeathPanel" type="Panel" parent="GUILayer/GUI"]
 unique_name_in_owner = true
 process_mode = 2
-visible = false
 layout_mode = 0
 offset_left = 230.0
 offset_top = -266.0
@@ -212,11 +216,11 @@ text = "Menu"
 [node name="lblTimer" type="Label" parent="GUILayer/GUI"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 280.0
-offset_top = 20.0
-offset_right = 360.0
-offset_bottom = 44.0
-theme_override_fonts/font = ExtResource("6_okx7u")
+offset_left = 281.0
+offset_top = 19.0
+offset_right = 361.0
+offset_bottom = 53.0
+theme_override_fonts/font = ExtResource("6_mey0s")
 theme_override_font_sizes/font_size = 20
 text = "00:00"
 horizontal_alignment = 1
@@ -239,6 +243,10 @@ offset_top = 40.0
 offset_right = 208.0
 offset_bottom = 56.0
 columns = 10
+
+[node name="Pause" parent="GUILayer/GUI" instance=ExtResource("14_erub4")]
+visible = false
+layout_mode = 1
 
 [connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
 [connection signal="timeout" from="Attack/IceSpearTimer" to="." method="_on_ice_spear_timer_timeout"]
