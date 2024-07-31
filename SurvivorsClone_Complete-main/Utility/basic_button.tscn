@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b7c7gsdx2rkjm"]
 
+[ext_resource type="FontFile" uid="uid://1dcjvvw52hll" path="res://Font/Wonderbar.ttf" id="1_0dwvr"]
 [ext_resource type="AudioStream" uid="uid://bwahs2mtjus02" path="res://Audio/GUI/hover.wav" id="1_2ggfj"]
-[ext_resource type="FontFile" uid="uid://cb4e8g30xxp5u" path="res://Font/tenderness.otf" id="1_5s5k8"]
 [ext_resource type="Script" path="res://Utility/basic_button.gd" id="1_t2e60"]
 [ext_resource type="AudioStream" uid="uid://dobpqbspunihg" path="res://Audio/GUI/click.wav" id="2_jbqnc"]
 
@@ -9,7 +9,7 @@
 custom_minimum_size = Vector2(80, 30)
 offset_right = 8.0
 offset_bottom = 8.0
-theme_override_fonts/font = ExtResource("1_5s5k8")
+theme_override_fonts/font = ExtResource("1_0dwvr")
 theme_override_font_sizes/font_size = 20
 text = "Example"
 script = ExtResource("1_t2e60")

@@ -1,5 +1,5 @@
-res://World/world.tscn
 res://Player/player.tscn
+res://World/world.tscn
 res://Enemy/enemy_kobold_weak.tscn
 res://Utility/enemy_spawner.tscn
 res://Enemy/enemy_kobold_strong.tscn
