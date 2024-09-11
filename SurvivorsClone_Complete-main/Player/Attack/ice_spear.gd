@@ -11,6 +11,9 @@ var target = Vector2.ZERO
 var angle = Vector2.ZERO
 
 @onready var player = get_tree().get_first_node_in_group("player")
+@onready var sprite = $Sprite2D
+@onready var particles = $CPUParticles2D
+@onready var timer = $Timer
 signal remove_from_array(object)
 
 func _ready():
@@ -42,7 +45,6 @@ func _ready():
 			knockback_amount = 100
 			attack_size = 1.0 * (1 + player.spell_size)
 
-	
 	var tween = create_tween()
 	tween.tween_property(self,"scale",Vector2(1,1)*attack_size,1).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
 	tween.play()
@@ -53,10 +55,23 @@ func _physics_process(delta):
 func enemy_hit(charge = 1):
 	hp -= charge
 	if hp <= 0:
-		emit_signal("remove_from_array",self)
-		queue_free()
-
+		_destroy_object()
 
 func _on_timer_timeout():
-	emit_signal("remove_from_array",self)
+	_destroy_object()
+
+# This function handles the destruction process smoothly
+func _destroy_object():
+	# Disable the sprite so it disappears
+	sprite.visible = false
+	
+	# Stop the particle emission and allow the particles to fade out
+	particles.emitting = false
+	
+	# Set a short timer to fully remove the object after particles stop
+	timer.wait_time = 1.0  # Adjust this time based on how long your particles take to fade out
+	timer.start()
+
+func _on_Timer_timeout():
+	emit_signal("remove_from_array", self)
 	queue_free()
