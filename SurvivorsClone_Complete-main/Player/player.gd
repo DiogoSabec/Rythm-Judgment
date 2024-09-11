@@ -1,15 +1,15 @@
 extends CharacterBody2D
 
 
-var movement_speed = 80.0
-var hp = 80
-var maxhp = 80
-var last_movement = Vector2.UP
-var time = 0
+@export var movement_speed = 80.0
+@export var hp = 80
+@export var maxhp = 80
+@export var last_movement = Vector2.UP
+@export var time = 0
 
 @export var experience = 0
-var experience_level = 1
-var collected_experience = 0
+@export var experience_level = 1
+@export var collected_experience = 0
 
 #Attacks
 var iceSpear = preload("res://Player/Attack/ice_spear.tscn")
@@ -24,29 +24,29 @@ var javelin = preload("res://Player/Attack/javelin.tscn")
 @onready var javelinBase = get_node("%JavelinBase")
 
 #UPGRADES
-var collected_upgrades = []
-var upgrade_options = []
-var armor = 0
-var speed = 0
-var spell_cooldown = 0
-var spell_size = 0
-var additional_attacks = 0
+@export var collected_upgrades = []
+@export var upgrade_options = []
+@export var armor = 0
+@export var speed = 0
+@export var spell_cooldown = 0
+@export var spell_size = 0
+@export var additional_attacks = 0
 
 #IceSpear
-var icespear_ammo = 0
-var icespear_baseammo = 0
-var icespear_attackspeed = 1.5
-var icespear_level = 0
+@export var icespear_ammo = 0
+@export var icespear_baseammo = 0
+@export var icespear_attackspeed = 1.5
+@export var icespear_level = 0
 
 #Tornado
-var tornado_ammo = 0
-var tornado_baseammo = 0
-var tornado_attackspeed = 3
-var tornado_level = 0
+@export var tornado_ammo = 0
+@export var tornado_baseammo = 0
+@export var tornado_attackspeed = 3
+@export var tornado_level = 0
 
 #Javelin
-var javelin_ammo = 0
-var javelin_level = 0
+@export var javelin_ammo = 0
+@export var javelin_level = 0
 
 
 #Enemy Related

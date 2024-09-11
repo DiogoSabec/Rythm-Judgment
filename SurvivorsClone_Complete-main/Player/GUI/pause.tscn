@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://3rmf6o4v314s"]
+[gd_scene load_steps=4 format=3 uid="uid://3rmf6o4v314s"]
 
 [ext_resource type="Script" path="res://Player/GUI/pause.gd" id="1_5txul"]
 [ext_resource type="PackedScene" uid="uid://b7c7gsdx2rkjm" path="res://Utility/basic_button.tscn" id="2_6drxv"]
+[ext_resource type="Texture2D" uid="uid://dfnaaou240n3k" path="res://Textures/GUI/Menu.png" id="2_06ytr"]
 
 [node name="Pause" type="Control"]
 layout_mode = 3
@@ -16,35 +17,34 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5txul")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = 247.0
-offset_top = 37.0
-offset_right = 397.0
-offset_bottom = 337.0
-color = Color(0.179319, 0.244309, 0.816825, 0.631373)
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(320, 187)
+texture = ExtResource("2_06ytr")
+offset = Vector2(3.115, 0)
 
 [node name="btn_play" parent="." instance=ExtResource("2_6drxv")]
 layout_mode = 0
-offset_left = 265.0
+offset_left = 278.0
 offset_top = 158.0
-offset_right = 378.0
+offset_right = 365.0
 offset_bottom = 200.0
+theme_override_font_sizes/font_size = 15
 text = "Novo jogo"
 
 [node name="btn_exit" parent="." instance=ExtResource("2_6drxv")]
 layout_mode = 0
-offset_left = 253.0
+offset_left = 270.0
 offset_top = 248.0
-offset_right = 393.0
+offset_right = 377.0
 offset_bottom = 290.0
+theme_override_font_sizes/font_size = 15
 text = "Sair do jogo"
 
 [node name="btn_return" parent="." instance=ExtResource("2_6drxv")]
 layout_mode = 0
-offset_left = 264.0
+offset_left = 279.0
 offset_top = 73.0
-offset_right = 377.0
+offset_right = 368.0
 offset_bottom = 115.0
 text = "Resume"
 

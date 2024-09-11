@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://da53mspvqfxq4"
-path="res://.godot/imported/health.png-68ffa39e5bfb28c2c2c42e7d6eb6e804.ctex"
+uid="uid://bvu1dfm1r7gic"
+path="res://.godot/imported/Magnus.png-b833b0209f2e699896e61bcc1a4314ce.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/GUI/health.png"
-dest_files=["res://.godot/imported/health.png-68ffa39e5bfb28c2c2c42e7d6eb6e804.ctex"]
+source_file="res://Textures/Magnus.png"
+dest_files=["res://.godot/imported/Magnus.png-b833b0209f2e699896e61bcc1a4314ce.ctex"]
 
 [params]
 

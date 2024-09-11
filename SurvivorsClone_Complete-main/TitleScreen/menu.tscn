@@ -1,8 +1,33 @@
-[gd_scene load_steps=4 format=3 uid="uid://dcyka5e06knff"]
+[gd_scene load_steps=6 format=3 uid="uid://dcyka5e06knff"]
 
 [ext_resource type="Script" path="res://TitleScreen/menu.gd" id="1_oi0p3"]
 [ext_resource type="FontFile" uid="uid://cb4e8g30xxp5u" path="res://Font/tenderness.otf" id="1_xdjxl"]
+[ext_resource type="Shader" path="res://TitleScreen/vhs.gdshader" id="2_fv4ow"]
 [ext_resource type="PackedScene" uid="uid://b7c7gsdx2rkjm" path="res://Utility/basic_button.tscn" id="3_kwsdd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2agxi"]
+shader = ExtResource("2_fv4ow")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.0
+shader_parameter/scanlines_width = 0.104
+shader_parameter/grille_opacity = 0.221
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = true
+shader_parameter/roll = true
+shader_parameter/roll_speed = 1.13
+shader_parameter/roll_size = 27.359
+shader_parameter/roll_variation = 5.0
+shader_parameter/distort_intensity = 0.003
+shader_parameter/noise_opacity = 0.4
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/aberration = 0.00500005
+shader_parameter/brightness = 1.575
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.326
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.219
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -15,8 +40,8 @@ script = ExtResource("1_oi0p3")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_right = 673.0
-offset_bottom = 382.0
+offset_right = 639.0
+offset_bottom = 360.0
 color = Color(0.572549, 0.207843, 0.168627, 1)
 
 [node name="Label" type="Label" parent="."]
@@ -25,16 +50,16 @@ offset_right = 640.0
 offset_bottom = 100.0
 theme_override_fonts/font = ExtResource("1_xdjxl")
 theme_override_font_sizes/font_size = 72
-text = "Survivors Clone #13247"
+text = "Rythm Judgement"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="btn_play" parent="." instance=ExtResource("3_kwsdd")]
 layout_mode = 0
 offset_left = 280.0
-offset_top = 250.0
+offset_top = 237.0
 offset_right = 360.0
-offset_bottom = 280.0
+offset_bottom = 279.0
 text = "Play"
 
 [node name="btn_exit" parent="." instance=ExtResource("3_kwsdd")]
@@ -44,6 +69,19 @@ offset_top = 290.0
 offset_right = 360.0
 offset_bottom = 320.0
 text = "Exit"
+
+[node name="CanvasLayerVHS" type="CanvasLayer" parent="."]
+layer = 5
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayerVHS"]
+material = SubResource("ShaderMaterial_2agxi")
+anchors_preset = -1
+anchor_right = 1.00044
+anchor_bottom = 0.999889
+offset_right = -0.280029
+offset_bottom = 0.0399475
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
 
 [connection signal="click_end" from="btn_play" to="." method="_on_btn_play_click_end"]
 [connection signal="click_end" from="btn_exit" to="." method="_on_btn_exit_click_end"]
