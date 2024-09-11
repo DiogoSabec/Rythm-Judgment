@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://3rmf6o4v314s"]
+[gd_scene load_steps=5 format=3 uid="uid://3rmf6o4v314s"]
 
 [ext_resource type="Script" path="res://Player/GUI/pause.gd" id="1_5txul"]
 [ext_resource type="PackedScene" uid="uid://b7c7gsdx2rkjm" path="res://Utility/basic_button.tscn" id="2_6drxv"]
 [ext_resource type="Texture2D" uid="uid://dfnaaou240n3k" path="res://Textures/GUI/Menu.png" id="2_06ytr"]
+[ext_resource type="FontFile" uid="uid://1dcjvvw52hll" path="res://Font/Wonderbar.ttf" id="4_ymhoe"]
 
 [node name="Pause" type="Control"]
 layout_mode = 3
@@ -18,16 +19,16 @@ grow_vertical = 2
 script = ExtResource("1_5txul")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(320, 187)
+position = Vector2(320, 193)
 texture = ExtResource("2_06ytr")
 offset = Vector2(3.115, 0)
 
 [node name="btn_play" parent="." instance=ExtResource("2_6drxv")]
 layout_mode = 0
-offset_left = 278.0
-offset_top = 158.0
-offset_right = 365.0
-offset_bottom = 200.0
+offset_left = 280.0
+offset_top = 191.0
+offset_right = 368.0
+offset_bottom = 233.0
 theme_override_font_sizes/font_size = 15
 text = "Novo jogo"
 
@@ -42,11 +43,21 @@ text = "Sair do jogo"
 
 [node name="btn_return" parent="." instance=ExtResource("2_6drxv")]
 layout_mode = 0
-offset_left = 279.0
-offset_top = 73.0
+offset_left = 280.0
+offset_top = 134.0
 offset_right = 368.0
-offset_bottom = 115.0
+offset_bottom = 176.0
 text = "Resume"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 271.0
+offset_top = 69.0
+offset_right = 377.0
+offset_bottom = 127.0
+theme_override_fonts/font = ExtResource("4_ymhoe")
+theme_override_font_sizes/font_size = 35
+text = "Pause"
 
 [connection signal="click_end" from="btn_play" to="." method="_on_btn_play_click_end"]
 [connection signal="click_end" from="btn_exit" to="." method="_on_btn_exit_click_end"]
