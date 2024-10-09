@@ -1,8 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://du6qbgqucaqov"]
+[gd_scene load_steps=24 format=3 uid="uid://du6qbgqucaqov"]
 
 [ext_resource type="Texture2D" uid="uid://b6umklllf2jsl" path="res://Textures/dirt_full_new.png" id="1_3v41d"]
 [ext_resource type="PackedScene" uid="uid://dncgepmkc4jf4" path="res://Player/player.tscn" id="2_40uwv"]
 [ext_resource type="PackedScene" uid="uid://ba2claihwes2y" path="res://Utility/enemy_spawner.tscn" id="3_p01g4"]
+[ext_resource type="Shader" path="res://TitleScreen/vhs.gdshader" id="3_vtams"]
 [ext_resource type="PackedScene" uid="uid://gvm5jcbbgwdv" path="res://Enemy/enemy_kobold_weak.tscn" id="4_ee8bm"]
 [ext_resource type="Script" path="res://Utility/spawn_info.gd" id="5_jj7s8"]
 [ext_resource type="PackedScene" uid="uid://bbvhxvk65o8el" path="res://Enemy/enemy_kobold_strong.tscn" id="6_rumbx"]
@@ -21,6 +22,30 @@ glow_intensity = 0.48
 glow_bloom = 0.05
 fog_light_color = Color(0.991041, 0, 0.495379, 1)
 adjustment_enabled = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hfr8j"]
+shader = ExtResource("3_vtams")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.138
+shader_parameter/scanlines_width = 0.214
+shader_parameter/grille_opacity = 0.063
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = true
+shader_parameter/roll = true
+shader_parameter/roll_speed = 2.255
+shader_parameter/roll_size = 43.443
+shader_parameter/roll_variation = 1.642
+shader_parameter/distort_intensity = 0.005
+shader_parameter/noise_opacity = 0.105
+shader_parameter/noise_speed = 4.7
+shader_parameter/static_noise_intensity = 0.0
+shader_parameter/aberration = 4.75e-08
+shader_parameter/brightness = 1.2
+shader_parameter/discolor = false
+shader_parameter/warp_amount = 0.151
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.125
+shader_parameter/vignette_opacity = 0.475
 
 [sub_resource type="Resource" id="Resource_03m25"]
 script = ExtResource("5_jj7s8")
@@ -107,6 +132,21 @@ region_rect = Rect2(-4000, -4000, 4000, 4000)
 
 [node name="Player" parent="." instance=ExtResource("2_40uwv")]
 experience = 0
+
+[node name="CanvasLayerVHS2" type="CanvasLayer" parent="Player"]
+layer = 5
+
+[node name="ColorRect" type="ColorRect" parent="Player/CanvasLayerVHS2"]
+material = SubResource("ShaderMaterial_hfr8j")
+anchors_preset = -1
+anchor_top = 0.00555556
+anchor_right = 1.00044
+anchor_bottom = 1.00544
+offset_top = -2.0
+offset_right = -0.280029
+offset_bottom = -1.96005
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="EnemySpawner" parent="." instance=ExtResource("3_p01g4")]
 spawns = Array[ExtResource("5_jj7s8")]([SubResource("Resource_03m25"), SubResource("Resource_ij20a"), SubResource("Resource_68oxv"), SubResource("Resource_l8y0x"), SubResource("Resource_daq1w"), SubResource("Resource_0gpiy"), SubResource("Resource_4teun"), SubResource("Resource_rx6id"), SubResource("Resource_t2np8")])

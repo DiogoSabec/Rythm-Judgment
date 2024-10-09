@@ -47,7 +47,7 @@ offset_right = 166.0
 offset_bottom = 48.0
 scale = Vector2(1.03025, 1)
 theme_override_fonts/font = ExtResource("2_wif5r")
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 10
 text = "Description of Item"
 autowrap_mode = 3
 

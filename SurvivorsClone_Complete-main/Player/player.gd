@@ -54,6 +54,7 @@ var enemy_close = []
 
 
 @onready var sprite = $Sprite2D
+@onready var sprite_shadow = $SpriteShadow
 @onready var walkTimer = get_node("%walkTimer")
 
 #GUI
@@ -74,7 +75,11 @@ var enemy_close = []
 @onready var sndVictory = get_node("%snd_victory")
 @onready var sndLose = get_node("%snd_lose")
 
-#Signal
+var note_times = []
+var current_note_index = 0
+var music_timer = 0.0
+var is_playing = false
+
 signal playerdeath
 
 func _ready():
@@ -94,8 +99,10 @@ func movement():
 	var mov = Vector2(x_mov,y_mov)
 	if mov.x > 0:
 		sprite.flip_h = true
+		sprite_shadow.flip_h = true
 	elif mov.x < 0:
 		sprite.flip_h = false
+		sprite_shadow.flip_h = false
 
 	if mov != Vector2.ZERO:
 		last_movement = mov

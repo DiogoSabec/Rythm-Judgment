@@ -1,7 +1,6 @@
-[gd_scene load_steps=24 format=3 uid="uid://dncgepmkc4jf4"]
+[gd_scene load_steps=22 format=3 uid="uid://dncgepmkc4jf4"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_37q80"]
-[ext_resource type="Shader" path="res://TitleScreen/vhs.gdshader" id="2_4bmmi"]
 [ext_resource type="Texture2D" uid="uid://p46qgvgj233p" path="res://Textures/MagnusV2.png" id="3_4s771"]
 [ext_resource type="Shader" path="res://Player/shadow.gdshader" id="3_eycu1"]
 [ext_resource type="PackedScene" uid="uid://xy3cvpwdy828" path="res://Utility/hurt_box.tscn" id="3_gs51i"]
@@ -16,30 +15,6 @@
 [ext_resource type="AudioStream" uid="uid://ca6physj6mqei" path="res://Audio/SoundEffect/Lose.ogg" id="11_28kfi"]
 [ext_resource type="PackedScene" uid="uid://b7c7gsdx2rkjm" path="res://Utility/basic_button.tscn" id="12_i8esf"]
 [ext_resource type="PackedScene" uid="uid://3rmf6o4v314s" path="res://Player/GUI/pause.tscn" id="14_erub4"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_paeog"]
-shader = ExtResource("2_4bmmi")
-shader_parameter/overlay = true
-shader_parameter/scanlines_opacity = 0.18
-shader_parameter/scanlines_width = 0.214
-shader_parameter/grille_opacity = 0.315
-shader_parameter/resolution = Vector2(640, 480)
-shader_parameter/pixelate = true
-shader_parameter/roll = false
-shader_parameter/roll_speed = 0.42
-shader_parameter/roll_size = 61.625
-shader_parameter/roll_variation = 1.025
-shader_parameter/distort_intensity = 0.003
-shader_parameter/noise_opacity = 0.05
-shader_parameter/noise_speed = 5.0
-shader_parameter/static_noise_intensity = 0.0
-shader_parameter/aberration = 4.75e-08
-shader_parameter/brightness = 1.2
-shader_parameter/discolor = false
-shader_parameter/warp_amount = 0.151
-shader_parameter/clip_warp = false
-shader_parameter/vignette_intensity = 0.125
-shader_parameter/vignette_opacity = 0.475
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_c86xp"]
 shader = ExtResource("3_eycu1")
@@ -66,27 +41,14 @@ motion_mode = 1
 script = ExtResource("1_37q80")
 experience = 765
 
-[node name="CanvasLayerVHS" type="CanvasLayer" parent="."]
-layer = 5
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayerVHS"]
-material = SubResource("ShaderMaterial_paeog")
-anchors_preset = -1
-anchor_top = 0.00555556
-anchor_right = 1.00044
-anchor_bottom = 1.00544
-offset_top = -2.0
-offset_right = -0.280029
-offset_bottom = -1.96005
-mouse_filter = 2
-metadata/_edit_use_anchors_ = true
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 1
 texture = ExtResource("3_4s771")
 
 [node name="SpriteShadow" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_c86xp")
+position = Vector2(-2.25, -0.75)
+scale = Vector2(0.871429, 0.957143)
 texture = ExtResource("3_4s771")
 
 [node name="Camera2D" type="Camera2D" parent="."]
