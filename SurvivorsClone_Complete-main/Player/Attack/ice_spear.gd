@@ -58,7 +58,6 @@ func enemy_hit(charge = 1):
 func _destroy_object():
 	# Desativa a sprite e interrompe a emissão de partículas
 	sprite.visible = false
-	particles.emitting = false
 	# Aguarda um curto período para as partículas desaparecerem
 	await get_tree().create_timer(1.0).timeout
 	queue_free()
