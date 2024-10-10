@@ -1,7 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://dncgepmkc4jf4"]
+[gd_scene load_steps=24 format=3 uid="uid://dncgepmkc4jf4"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_37q80"]
-[ext_resource type="Texture2D" uid="uid://doa3scrwgj2oq" path="res://Textures/Player/player_sprite.png" id="1_jefax"]
+[ext_resource type="Texture2D" uid="uid://p46qgvgj233p" path="res://Textures/MagnusV2.png" id="3_4s771"]
+[ext_resource type="Shader" path="res://Player/shadow.gdshader" id="3_eycu1"]
 [ext_resource type="PackedScene" uid="uid://xy3cvpwdy828" path="res://Utility/hurt_box.tscn" id="3_gs51i"]
 [ext_resource type="Texture2D" uid="uid://dx7xx6vfahxlq" path="res://Textures/GUI/exp_background.png" id="4_pbpj5"]
 [ext_resource type="Texture2D" uid="uid://dlx33roiu0vlj" path="res://Textures/GUI/exp_progress.png" id="5_5ive2"]
@@ -14,6 +15,12 @@
 [ext_resource type="AudioStream" uid="uid://ca6physj6mqei" path="res://Audio/SoundEffect/Lose.ogg" id="11_28kfi"]
 [ext_resource type="PackedScene" uid="uid://b7c7gsdx2rkjm" path="res://Utility/basic_button.tscn" id="12_i8esf"]
 [ext_resource type="PackedScene" uid="uid://3rmf6o4v314s" path="res://Player/GUI/pause.tscn" id="14_erub4"]
+[ext_resource type="AudioStream" uid="uid://dfplk0l3k1bvy" path="res://Audio/Musica/Undertale_-_Spear_Of_Justice.mp3" id="16_pmw0b"]
+[ext_resource type="Script" path="res://Audio/Music/snd_Music.gd" id="17_v3534"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c86xp"]
+shader = ExtResource("3_eycu1")
+shader_parameter/look_right = true
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nffdp"]
 radius = 4.0
@@ -34,13 +41,20 @@ radius = 50.0
 collision_mask = 0
 motion_mode = 1
 script = ExtResource("1_37q80")
-experience = 765
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_jefax")
-hframes = 2
+z_index = 1
+texture = ExtResource("3_4s771")
+
+[node name="SpriteShadow" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_c86xp")
+position = Vector2(-2.25, -0.75)
+scale = Vector2(0.871429, 0.957143)
+texture = ExtResource("3_4s771")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.25, 1.25)
+position_smoothing_speed = 50.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, 3)
@@ -81,12 +95,12 @@ wait_time = 0.2
 unique_name_in_owner = true
 
 [node name="EnemyDetectionArea" type="Area2D" parent="."]
-visible = false
 collision_layer = 4
 collision_mask = 4
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetectionArea"]
+visible = false
 shape = SubResource("CircleShape2D_anwqc")
 
 [node name="GrabArea" type="Area2D" parent="."]
@@ -137,9 +151,9 @@ unique_name_in_owner = true
 self_modulate = Color(1, 1, 1, 0.392157)
 layout_mode = 0
 offset_left = 304.0
-offset_top = 200.0
+offset_top = 204.0
 offset_right = 336.0
-offset_bottom = 208.0
+offset_bottom = 212.0
 value = 50.0
 texture_over = ExtResource("8_flesq")
 texture_progress = ExtResource("9_uker1")
@@ -247,6 +261,13 @@ columns = 10
 [node name="Pause" parent="GUILayer/GUI" instance=ExtResource("14_erub4")]
 visible = false
 layout_mode = 1
+
+[node name="snd_Music" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("16_pmw0b")
+volume_db = -4.952
+autoplay = true
+script = ExtResource("17_v3534")
 
 [connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
 [connection signal="timeout" from="Attack/IceSpearTimer" to="." method="_on_ice_spear_timer_timeout"]

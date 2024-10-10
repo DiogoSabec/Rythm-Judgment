@@ -2,10 +2,13 @@
 
 [ext_resource type="Script" path="res://Player/Attack/ice_spear.gd" id="1_4el3j"]
 [ext_resource type="Texture2D" uid="uid://jjt1rh5e2jcp" path="res://Textures/Items/Weapons/ice_spear.png" id="1_nhh0e"]
-[ext_resource type="AudioStream" uid="uid://cl3g2vts3nyt0" path="res://Audio/SoundEffect/ice.wav" id="3_esswn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p4tiy"]
 size = Vector2(6.36396, 33.234)
+
+[sub_resource type="Gradient" id="Gradient_qjypo"]
+offsets = PackedFloat32Array(0.666667, 1)
+colors = PackedColorArray(0.63, 0.864, 0.9, 1, 1, 1, 1, 1)
 
 [node name="IceSpear" type="Area2D" groups=["attack"]]
 top_level = true
@@ -27,10 +30,21 @@ wait_time = 10.0
 one_shot = true
 autostart = true
 
-[node name="snd_play" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_esswn")
-volume_db = -10.0
-pitch_scale = 5.0
-autoplay = true
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 10
+lifetime = 0.5
+lifetime_randomness = 0.4
+emission_shape = 1
+emission_sphere_radius = 5.86
+direction = Vector2(11.28, 0)
+spread = 88.11
+gravity = Vector2(0.505, 100)
+angular_velocity_min = -527.06
+angular_velocity_max = 498.82
+scale_amount_min = 2.0
+scale_amount_max = 3.0
+color_ramp = SubResource("Gradient_qjypo")
+hue_variation_min = -1.0
+hue_variation_max = 1.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

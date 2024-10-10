@@ -1,19 +1,30 @@
-[gd_scene load_steps=5 format=3 uid="uid://cr4wh8k8gaysv"]
+[gd_scene load_steps=7 format=3 uid="uid://cr4wh8k8gaysv"]
 
+[ext_resource type="Shader" path="res://Player/Attack/javelin.gdshader" id="1_anyor"]
 [ext_resource type="Texture2D" uid="uid://d22bl2j2hb3d1" path="res://Textures/Items/Weapons/javelin_3_new.png" id="1_rbe4t"]
 [ext_resource type="Script" path="res://Player/Attack/javelin.gd" id="1_ro7n8"]
 [ext_resource type="AudioStream" uid="uid://ckro6v281rcab" path="res://Audio/SoundEffect/woosh.wav" id="3_6kycs"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r1nq5"]
+shader = ExtResource("1_anyor")
+shader_parameter/opacity = 0.615
+shader_parameter/r = 0.0
+shader_parameter/g = 0.0
+shader_parameter/b = 0.7
+shader_parameter/mix_color = null
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ojwf"]
 size = Vector2(4.24264, 32.5269)
 
 [node name="Javelin" type="Area2D" groups=["attack"]]
 top_level = true
+use_parent_material = true
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_ro7n8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_r1nq5")
 texture = ExtResource("1_rbe4t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
