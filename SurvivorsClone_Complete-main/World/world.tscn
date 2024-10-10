@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://du6qbgqucaqov"]
+[gd_scene load_steps=22 format=3 uid="uid://du6qbgqucaqov"]
 
 [ext_resource type="Texture2D" uid="uid://b6umklllf2jsl" path="res://Textures/dirt_full_new.png" id="1_3v41d"]
 [ext_resource type="PackedScene" uid="uid://dncgepmkc4jf4" path="res://Player/player.tscn" id="2_40uwv"]
@@ -10,8 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://bok7kd2psi5gl" path="res://Enemy/enemy_cyclops.tscn" id="7_unri0"]
 [ext_resource type="PackedScene" uid="uid://hcjnrdsb563h" path="res://Enemy/enemy_juggernaut.tscn" id="8_ltymd"]
 [ext_resource type="PackedScene" uid="uid://btf7clk4jja87" path="res://Enemy/enemy_super.tscn" id="9_xs42h"]
-[ext_resource type="AudioStream" uid="uid://bbufl4r1ou1rw" path="res://Audio/Music/battleThemeA.mp3" id="10_rk3we"]
-[ext_resource type="Script" path="res://Audio/Music/snd_Music.gd" id="11_ovtx6"]
 
 [sub_resource type="Environment" id="Environment_4jy1g"]
 background_mode = 3
@@ -131,7 +129,6 @@ region_enabled = true
 region_rect = Rect2(-4000, -4000, 4000, 4000)
 
 [node name="Player" parent="." instance=ExtResource("2_40uwv")]
-experience = 0
 
 [node name="CanvasLayerVHS2" type="CanvasLayer" parent="Player"]
 layer = 5
@@ -152,12 +149,3 @@ metadata/_edit_use_anchors_ = true
 spawns = Array[ExtResource("5_jj7s8")]([SubResource("Resource_03m25"), SubResource("Resource_ij20a"), SubResource("Resource_68oxv"), SubResource("Resource_l8y0x"), SubResource("Resource_daq1w"), SubResource("Resource_0gpiy"), SubResource("Resource_4teun"), SubResource("Resource_rx6id"), SubResource("Resource_t2np8")])
 
 [node name="Loot" type="Node2D" parent="." groups=["loot"]]
-
-[node name="snd_Music" type="AudioStreamPlayer" parent="."]
-process_mode = 3
-stream = ExtResource("10_rk3we")
-volume_db = -15.0
-autoplay = true
-script = ExtResource("11_ovtx6")
-
-[connection signal="playerdeath" from="Player" to="snd_Music" method="_on_player_playerdeath"]

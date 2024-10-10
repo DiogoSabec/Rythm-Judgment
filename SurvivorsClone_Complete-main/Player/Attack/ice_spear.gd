@@ -13,12 +13,12 @@ var angle = Vector2.ZERO
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var sprite = $Sprite2D
 @onready var particles = $CPUParticles2D
-@onready var timer = $Timer
-signal remove_from_array(object)
 
 func _ready():
+	level = player.icespear_level  # Obter o nível atual do Ice Spear do jogador
 	angle = global_position.direction_to(target)
 	rotation = angle.angle() + deg_to_rad(135)
+	
 	match level:
 		1:
 			hp = 1
@@ -44,34 +44,21 @@ func _ready():
 			damage = 8
 			knockback_amount = 100
 			attack_size = 1.0 * (1 + player.spell_size)
-
-	var tween = create_tween()
-	tween.tween_property(self,"scale",Vector2(1,1)*attack_size,1).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
-	tween.play()
+	
+	scale = Vector2.ONE * attack_size  # Ajusta o tamanho do Ice Spear
 
 func _physics_process(delta):
-	position += angle*speed*delta
+	position += angle * speed * delta
 
 func enemy_hit(charge = 1):
 	hp -= charge
 	if hp <= 0:
 		_destroy_object()
 
-func _on_timer_timeout():
-	_destroy_object()
-
-# This function handles the destruction process smoothly
 func _destroy_object():
-	# Disable the sprite so it disappears
+	# Desativa a sprite e interrompe a emissão de partículas
 	sprite.visible = false
-	
-	# Stop the particle emission and allow the particles to fade out
 	particles.emitting = false
-	
-	# Set a short timer to fully remove the object after particles stop
-	timer.wait_time = 1.0  # Adjust this time based on how long your particles take to fade out
-	timer.start()
-
-func _on_Timer_timeout():
-	emit_signal("remove_from_array", self)
+	# Aguarda um curto período para as partículas desaparecerem
+	await get_tree().create_timer(1.0).timeout
 	queue_free()
