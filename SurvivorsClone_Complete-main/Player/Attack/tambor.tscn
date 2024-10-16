@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqambg2kyybki"]
+
+[ext_resource type="Script" path="res://Player/Attack/tambor.gd" id="1_0j2lg"]
+[ext_resource type="AudioStream" uid="uid://0p7ffxyi20oj" path="res://Audio/SoundEffect/house_lo.mp3" id="2_xsowi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ou2ec"]
+size = Vector2(4.24264, 32.5269)
+
+[node name="Tambor" type="Area2D"]
+script = ExtResource("1_0j2lg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -0.5)
+rotation = -0.785398
+shape = SubResource("RectangleShape2D_ou2ec")
+disabled = true
+
+[node name="AttackTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="snd_attack" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_xsowi")

@@ -12,7 +12,7 @@ var angle = Vector2.ZERO
 
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var sprite = $Sprite2D
-@onready var particles = $CPUParticles2D
+
 
 func _ready():
 	level = player.icespear_level  # Obter o nível atual do Ice Spear do jogador
