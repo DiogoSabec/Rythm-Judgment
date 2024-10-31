@@ -96,10 +96,10 @@ signal playerdeath
 
 func _ready():
 	# Carregar os tempos das notas
-	note_times_ice_spear = load_note_times("res://Audio/Musica/json/Piano.json")
-	note_times_tornado = load_note_times("res://Audio/Musica/json/Instrument2.json")
-	note_times_javelin = load_note_times("res://Audio/Musica/json/6.json")
-	note_times_tambor = load_note_times("res://Audio/Musica/json/Piano.json")
+	#note_times_ice_spear = load_note_times("res://Audio/Musica/json/Piano.json")
+	#note_times_tornado = load_note_times("res://Audio/Musica/json/Instrument2.json")
+	#note_times_javelin = load_note_times("res://Audio/Musica/json/6.json")
+	note_times_tambor = load_note_times("res://Audio/Musica/json/Instrument2.json")
 	is_playing = true  # Começar a reprodução
 
 	# Desbloquear as armas (se necessário)
@@ -200,16 +200,71 @@ func activate_javelin():
 				i.update_javelin()
 				i.update_javelin()
 func activate_tambor():
-	if tambor_level > 0:  # Verificar se o nível do tambor é maior que 0
-		var ammo = tambor_baseammo + additional_attacks  # Calcular a quantidade de ataques baseada no nível
+	if tambor_level > 0:
+		var ammo = tambor_baseammo + additional_attacks
 		for i in range(ammo):
-			var tambor_attack = Tambor.instantiate()  # Instanciar a cena do Tambor
-			tambor_attack.position = position  # Colocar o tambor na posição do jogador
-			tambor_attack.level = tambor_level  # Definir o nível do tambor
-			tambor_attack.area_radius = 100.0 * (1 + spell_size)  # Ajustar o raio do ataque em área baseado em upgrades
-			tambor_attack.damage = tambor_attack.damage * (1 + spell_size)  # Ajustar o dano baseado no tamanho do feitiço
-			tambor_attack.attack_speed = 3.0 * (1 - spell_cooldown)  # Ajustar a velocidade de ataque com base no cooldown
-			add_child(tambor_attack) 
+			var tambor_attack = Tambor.instantiate()
+			tambor_attack.position = position  # Posiciona o tambor no jogador
+			tambor_attack.level = tambor_level
+			tambor_attack.area_radius = 100.0 * (1 + spell_size)
+			tambor_attack.damage = tambor_attack.damage * (1 + spell_size)
+			tambor_attack.attack_speed = 3.0 * (1 - spell_cooldown)
+			tambor_attack.set_target(self)  # Passa a referência do jogador como alvo
+			add_child(tambor_attack)
+
+	if tambor_level > 0:
+		var ammo = tambor_baseammo + additional_attacks
+		for i in range(ammo):
+			var tambor_attack = Tambor.instantiate()
+			# Usa a posição do jogador diretamente
+			tambor_attack.position = position  # Usa position em vez de player_position
+
+			tambor_attack.level = tambor_level
+			tambor_attack.area_radius = 100.0 * (1 + spell_size)
+			tambor_attack.damage = tambor_attack.damage * (1 + spell_size)
+			tambor_attack.attack_speed = 3.0 * (1 - spell_cooldown)
+			tambor_attack.set_target(self)  # Passa a referência do jogador como alvo
+			add_child(tambor_attack)
+
+	if tambor_level > 0:
+		var ammo = tambor_baseammo + additional_attacks
+		for i in range(ammo):
+			var tambor_attack = Tambor.instantiate()
+			# Define a posição do tambor na posição do jogador
+			tambor_attack.position = self.position  # usa a posição local do jogador
+
+			tambor_attack.level = tambor_level
+			tambor_attack.area_radius = 100.0 * (1 + spell_size)
+			tambor_attack.damage = tambor_attack.damage * (1 + spell_size)
+			tambor_attack.attack_speed = 3.0 * (1 - spell_cooldown)
+			tambor_attack.set_target(self)  # Passa a referência do jogador como alvo
+			add_child(tambor_attack)
+
+	if tambor_level > 0:
+		var ammo = tambor_baseammo + additional_attacks
+		for i in range(ammo):
+			var tambor_attack = Tambor.instantiate()
+			# Define a posição do tambor na posição atual do jogador
+			tambor_attack.position = position  # usa a posição do jogador diretamente
+
+			tambor_attack.level = tambor_level
+			tambor_attack.area_radius = 100.0 * (1 + spell_size)
+			tambor_attack.damage = tambor_attack.damage * (1 + spell_size)
+			tambor_attack.attack_speed = 3.0 * (1 - spell_cooldown)
+			tambor_attack.set_target(self)  # Passa a referência do jogador como alvo
+			add_child(tambor_attack)
+	if tambor_level > 0:
+		var ammo = tambor_baseammo + additional_attacks
+		for i in range(ammo):
+			var tambor_attack = Tambor.instantiate()
+			# Vincula a posição do tambor com a posição do jogador continuamente
+			tambor_attack.level = tambor_level
+			tambor_attack.area_radius = 100.0 * (1 + spell_size)
+			tambor_attack.damage = tambor_attack.damage * (1 + spell_size)
+			tambor_attack.attack_speed = 3.0 * (1 - spell_cooldown)
+			tambor_attack.set_target(self)  # Passa a referência do jogador como alvo
+			add_child(tambor_attack)
+
 func _on_hurt_box_hurt(damage, _angle, _knockback):
 	hp -= clamp(damage - armor, 1.0, 999.0)
 	healthBar.max_value = maxhp

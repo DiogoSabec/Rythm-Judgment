@@ -1,18 +1,19 @@
 [gd_scene load_steps=4 format=3 uid="uid://bqambg2kyybki"]
 
-[ext_resource type="Script" path="res://Player/Attack/tambor.gd" id="1_0j2lg"]
-[ext_resource type="AudioStream" uid="uid://0p7ffxyi20oj" path="res://Audio/SoundEffect/house_lo.mp3" id="2_xsowi"]
+[ext_resource type="Script" path="res://Player/Attack/tambor.gd" id="1_itd2i"]
+[ext_resource type="Texture2D" uid="uid://cbbhfmqa6q0k0" path="res://Textures/Items/Weapons/circular.png" id="2_6twjd"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ou2ec"]
-size = Vector2(4.24264, 32.5269)
+[sub_resource type="CircleShape2D" id="CircleShape2D_g0pqc"]
+radius = 30.0707
 
-[node name="Tambor" type="Area2D"]
-script = ExtResource("1_0j2lg")
+[node name="Tambor" type="Area2D" groups=["attack"]]
+script = ExtResource("1_itd2i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, -0.5)
+modulate = Color(1, 1, 1, 0.639216)
+position = Vector2(0, 0.500001)
 rotation = -0.785398
-shape = SubResource("RectangleShape2D_ou2ec")
+shape = SubResource("CircleShape2D_g0pqc")
 disabled = true
 
 [node name="AttackTimer" type="Timer" parent="."]
@@ -22,4 +23,9 @@ one_shot = true
 autostart = true
 
 [node name="snd_attack" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("2_xsowi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.218056, 0.218056)
+texture = ExtResource("2_6twjd")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

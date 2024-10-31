@@ -23,12 +23,14 @@ func _on_timer_timeout():
 				i.spawn_delay_counter = 0
 				var new_enemy = i.enemy
 				var counter = 0
-				while  counter < i.enemy_num:
+				while counter < i.enemy_num:
 					var enemy_spawn = new_enemy.instantiate()
 					enemy_spawn.global_position = get_random_position()
+					enemy_spawn.add_to_group("enemy")  # Adiciona ao grupo "enemy"
 					add_child(enemy_spawn)
 					counter += 1
-	emit_signal("changetime",time)
+	emit_signal("changetime", time)
+
 
 func get_random_position():
 	var vpr = get_viewport_rect().size * randf_range(1.1,1.4)
