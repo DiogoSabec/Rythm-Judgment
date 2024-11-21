@@ -99,6 +99,13 @@ const UPGRADES = {
 		"level": "Level: 4",
 		"prerequisite": ["tornado3"],
 		"type": "weapon"
+	},"laser1": {
+		"icon": WEAPON_PATH + "laser.png",  # Certifique-se de que esse ícone exista no caminho certo
+		"displayname": "laser",
+		"details": "A magical laser creates an area of damage in sync with the music",
+		"level": "Level: 1",
+		"prerequisite": [],
+		"type": "weapon"
 	},"tambor1": {
 		"icon": WEAPON_PATH + "tambor.png",  # Certifique-se de que esse ícone exista no caminho certo
 		"displayname": "Tambor",

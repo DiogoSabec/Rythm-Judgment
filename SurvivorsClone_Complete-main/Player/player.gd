@@ -15,6 +15,7 @@ var iceSpear = preload("res://Player/Attack/ice_spear.tscn")
 var tornado = preload("res://Player/Attack/tornado.tscn")
 var javelin = preload("res://Player/Attack/javelin.tscn")
 var Tambor = preload("res://Player/Attack/tambor.tscn")
+var Laser = preload("res://Player/Attack/laser.tscn")
 # AttackNodes (Se não forem mais necessários, podem ser removidos)
 # @onready var iceSpearTimer = get_node("%IceSpearTimer")
 # @onready var iceSpearAttackTimer = get_node("%IceSpearAttackTimer")
@@ -46,6 +47,12 @@ var Tambor = preload("res://Player/Attack/tambor.tscn")
 # Javelin
 @export var javelin_ammo = 0
 @export var javelin_level = 0
+
+#laser
+@export var laser_ammo = 0
+@export var laser_baseammo = 0
+@export var laser_attackspeed = 3.0
+@export var laser_level = 0
 # Tambor
 @export var tambor_ammo = 0
 @export var tambor_baseammo = 0
@@ -81,11 +88,13 @@ var note_times_ice_spear = []
 var note_times_tornado = []
 var note_times_javelin = []
 var note_times_tambor = []
+var note_times_laser = []
 
 var current_note_index_ice_spear = 0
 var current_note_index_tornado = 0
 var current_note_index_javelin = 0
 var current_note_index_tambor = 0
+var current_note_index_laser = 0
 var music_timer = 0.0
 var is_playing = false
 
@@ -96,10 +105,11 @@ signal playerdeath
 
 func _ready():
 	# Carregar os tempos das notas
-	note_times_ice_spear = load_note_times("res://Audio/Musica/json/Piano.json")
-	note_times_tornado = load_note_times("res://Audio/Musica/json/Instrument2.json")
-	note_times_javelin = load_note_times("res://Audio/Musica/json/Instrument2.json")
-	note_times_tambor = load_note_times("res://Audio/Musica/json/Instrument2.json")
+	#note_times_ice_spear = load_note_times("res://Audio/Musica/json/Piano.json")
+	#note_times_tornado = load_note_times("res://Audio/Musica/json/Instrument2.json")
+	#note_times_javelin = load_note_times("res://Audio/Musica/json/Instrument2.json")
+	#note_times_tambor = load_note_times("res://Audio/Musica/json/Instrument2.json")
+	note_times_laser = load_note_times("res://Audio/Musica/json/Instrument2.json")
 	is_playing = true  # Começar a reprodução
 
 	# Desbloquear as armas (se necessário)
@@ -107,6 +117,7 @@ func _ready():
 	upgrade_character("tornado1")
 	upgrade_character("javelin1")
 	upgrade_character("tambor1")
+	upgrade_character("laser1")
 	# Configurações iniciais
 	set_expbar(experience, calculate_experiencecap())
 	_on_hurt_box_hurt(0, 0, 0)
@@ -124,6 +135,7 @@ func _physics_process(delta):
 			current_note_index_tornado = 0
 			current_note_index_javelin = 0
 			current_note_index_tambor = 0
+			current_note_index_laser = 0
 		# Verificar o Ice Spear
 		while current_note_index_ice_spear < note_times_ice_spear.size() and music_timer >= note_times_ice_spear[current_note_index_ice_spear]:
 			activate_ice_spear()
@@ -140,6 +152,10 @@ func _physics_process(delta):
 		while current_note_index_tambor < note_times_tambor.size() and music_timer >= note_times_tambor[current_note_index_tambor]:
 			activate_tambor()  # Função que ativa o ataque tambor
 			current_note_index_tambor += 1
+			# Verificar o laser
+		while current_note_index_laser < note_times_laser.size() and music_timer >= note_times_laser[current_note_index_laser]:
+			activate_laser()  # Função que ativa o ataque laser
+			current_note_index_laser += 1
 func movement():
 	var x_mov = Input.get_action_strength("right") - Input.get_action_strength("left")
 	var y_mov = Input.get_action_strength("down") - Input.get_action_strength("up")
@@ -204,59 +220,6 @@ func activate_tambor():
 		var ammo = tambor_baseammo + additional_attacks
 		for i in range(ammo):
 			var tambor_attack = Tambor.instantiate()
-			tambor_attack.position = position  # Posiciona o tambor no jogador
-			tambor_attack.level = tambor_level
-			tambor_attack.area_radius = 100.0 * (1 + spell_size)
-			tambor_attack.damage = tambor_attack.damage * (1 + spell_size)
-			tambor_attack.attack_speed = 3.0 * (1 - spell_cooldown)
-			tambor_attack.set_target(self)  # Passa a referência do jogador como alvo
-			add_child(tambor_attack)
-
-	if tambor_level > 0:
-		var ammo = tambor_baseammo + additional_attacks
-		for i in range(ammo):
-			var tambor_attack = Tambor.instantiate()
-			# Usa a posição do jogador diretamente
-			tambor_attack.position = position  # Usa position em vez de player_position
-
-			tambor_attack.level = tambor_level
-			tambor_attack.area_radius = 100.0 * (1 + spell_size)
-			tambor_attack.damage = tambor_attack.damage * (1 + spell_size)
-			tambor_attack.attack_speed = 3.0 * (1 - spell_cooldown)
-			tambor_attack.set_target(self)  # Passa a referência do jogador como alvo
-			add_child(tambor_attack)
-
-	if tambor_level > 0:
-		var ammo = tambor_baseammo + additional_attacks
-		for i in range(ammo):
-			var tambor_attack = Tambor.instantiate()
-			# Define a posição do tambor na posição do jogador
-			tambor_attack.position = self.position  # usa a posição local do jogador
-
-			tambor_attack.level = tambor_level
-			tambor_attack.area_radius = 100.0 * (1 + spell_size)
-			tambor_attack.damage = tambor_attack.damage * (1 + spell_size)
-			tambor_attack.attack_speed = 3.0 * (1 - spell_cooldown)
-			tambor_attack.set_target(self)  # Passa a referência do jogador como alvo
-			add_child(tambor_attack)
-
-	if tambor_level > 0:
-		var ammo = tambor_baseammo + additional_attacks
-		for i in range(ammo):
-			var tambor_attack = Tambor.instantiate()
-			# Define a posição do tambor na posição atual do jogador
-			tambor_attack.position = position  # usa a posição do jogador diretamente
-
-			tambor_attack.level = tambor_level
-			tambor_attack.area_radius = 100.0 * (1 + spell_size)
-			tambor_attack.damage = tambor_attack.damage * (1 + spell_size)
-			tambor_attack.attack_speed = 3.0 * (1 - spell_cooldown)
-			tambor_attack.set_target(self)  # Passa a referência do jogador como alvo
-			add_child(tambor_attack)
-	if tambor_level > 0:
-		var ammo = tambor_baseammo + additional_attacks
-		for i in range(ammo):
-			var tambor_attack = Tambor.instantiate()
 			# Vincula a posição do tambor com a posição do jogador continuamente
 			tambor_attack.level = tambor_level
 			tambor_attack.area_radius = 100.0 * (1 + spell_size)
@@ -264,6 +227,24 @@ func activate_tambor():
 			tambor_attack.attack_speed = 3.0 * (1 - spell_cooldown)
 			tambor_attack.set_target(self)  # Passa a referência do jogador como alvo
 			add_child(tambor_attack)
+func activate_laser():
+	if laser_level > 0:
+		var ammo = laser_baseammo + additional_attacks
+		for i in range(ammo):
+			var laser_attack = Laser.instantiate()
+
+			# Chama set_target antes de adicionar o laser
+			laser_attack.set_target(self)
+			
+			# Adicionar o laser à cena
+			get_tree().root.add_child(laser_attack)
+
+			print("\n--- LASER ACTIVATED ---")
+			print("Player Position at Activation:", global_position)
+			print("--- END LASER ACTIVATION ---\n")
+
+
+
 
 func _on_hurt_box_hurt(damage, _angle, _knockback):
 	hp -= clamp(damage - armor, 1.0, 999.0)
@@ -385,6 +366,9 @@ func upgrade_character(upgrade):
 			javelin_level = 3
 		"javelin4":
 			javelin_level = 4
+		"laser1":
+			laser_level = 1
+			laser_baseammo += 1	
 		"tambor1":
 			tambor_level = 1
 			tambor_baseammo += 1
