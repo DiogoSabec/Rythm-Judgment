@@ -20,25 +20,6 @@ Rythm Judgement é um jogo roguelike, visto de cima, com várias habilidades ún
 - Cada fase contém uma música diferente.
 - Cada música apresenta seu próprio conjunto de instrumentos.
 
-## Instrumentos e suas habilidades
-
-- **Bateria**
-  - Dano circular em área.
-- **Guitarra**
-  - Dano único e alto.
-- **Violão**
-  - Dano contínuo e alto.
-- **Flauta**
-  - Cura.
-- **Trompete**
-  - Dano alto em formato de U.
-- **Piano**
-  - Notas que vão diminuindo a velocidade até desaparecer.
-- **Violino**
-  - Raio contínuo.
-- **Sanfona**
-  - Causa lentidão aos inimigos.
-
 ## Referências
 
 ### Gameplay e Mecânicas
