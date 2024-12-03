@@ -15,7 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://ca6physj6mqei" path="res://Audio/SoundEffect/Lose.ogg" id="11_28kfi"]
 [ext_resource type="PackedScene" uid="uid://b7c7gsdx2rkjm" path="res://Utility/basic_button.tscn" id="12_i8esf"]
 [ext_resource type="PackedScene" uid="uid://3rmf6o4v314s" path="res://Player/GUI/pause.tscn" id="14_erub4"]
-[ext_resource type="AudioStream" uid="uid://dfplk0l3k1bvy" path="res://Audio/Musica/Undertale_-_Spear_Of_Justice.mp3" id="16_pmw0b"]
+[ext_resource type="AudioStream" uid="uid://dk58ff8suf0na" path="res://Audio/billie-jean-official-video.mp3" id="16_5ac1o"]
 [ext_resource type="Script" path="res://Audio/Music/snd_Music.gd" id="17_v3534"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_c86xp"]
@@ -264,7 +264,7 @@ layout_mode = 1
 
 [node name="snd_Music" type="AudioStreamPlayer" parent="."]
 process_mode = 3
-stream = ExtResource("16_pmw0b")
+stream = ExtResource("16_5ac1o")
 volume_db = -4.952
 autoplay = true
 script = ExtResource("17_v3534")
