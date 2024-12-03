@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 @export var movement_speed = 20.0
-@export var hp = 10
+@export var hp = 100
 @export var knockback_recovery = 3.5
 @export var experience = 1
 @export var enemy_damage = 1
@@ -48,6 +48,8 @@ func death():
 	new_gem.experience = experience
 	loot_base.call_deferred("add_child",new_gem)
 	queue_free()
+func take_damage(damage):
+	_on_hurt_box_hurt(damage, Vector2.ZERO, 0)  # Sem knockback e ângulo padrão
 
 func _on_hurt_box_hurt(damage, angle, knockback_amount):
 	hp -= damage

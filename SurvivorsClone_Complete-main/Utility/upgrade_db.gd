@@ -99,8 +99,39 @@ const UPGRADES = {
 		"level": "Level: 4",
 		"prerequisite": ["tornado3"],
 		"type": "weapon"
+	},"tambor1": {
+		"icon": WEAPON_PATH + "tambor.png",  # Certifique-se de que esse ícone exista no caminho certo
+		"displayname": "Tambor",
+		"details": "A magical drum creates an area of damage in sync with the music",
+		"level": "Level: 1",
+		"prerequisite": [],
+		"type": "weapon"
 	},
-	"armor1": {
+	"tambor2": {
+		"icon": WEAPON_PATH + "tambor.png",
+		"displayname": "Tambor",
+		"details": "The area of damage increases and does more damage",
+		"level": "Level: 2",
+		"prerequisite": ["tambor1"],
+		"type": "weapon"
+	},
+	"tambor3": {
+		"icon": WEAPON_PATH + "tambor.png",
+		"displayname": "Tambor",
+		"details": "The cooldown of the attack decreases",
+		"level": "Level: 3",
+		"prerequisite": ["tambor2"],
+		"type": "weapon"
+	},
+	"tambor4": {
+		"icon": WEAPON_PATH + "tambor.png",
+		"displayname": "Tambor",
+		"details": "The damage increases significantly and covers a larger area",
+		"level": "Level: 4",
+		"prerequisite": ["tambor3"],
+		"type": "weapon"
+	}
+	,"armor1": {
 		"icon": ICON_PATH + "helmet_1.png",
 		"displayname": "Armor",
 		"details": "Reduces Damage By 1 point",

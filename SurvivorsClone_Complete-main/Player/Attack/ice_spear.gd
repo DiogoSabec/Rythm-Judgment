@@ -12,7 +12,7 @@ var angle = Vector2.ZERO
 
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var sprite = $Sprite2D
-@onready var particles = $CPUParticles2D
+
 
 func _ready():
 	level = player.icespear_level  # Obter o nível atual do Ice Spear do jogador
@@ -23,25 +23,25 @@ func _ready():
 		1:
 			hp = 1
 			speed = 100
-			damage = 5
+			damage = 1
 			knockback_amount = 100
 			attack_size = 1.0 * (1 + player.spell_size)
 		2:
 			hp = 1
 			speed = 100
-			damage = 5
+			damage = 2
 			knockback_amount = 100
 			attack_size = 1.0 * (1 + player.spell_size)
 		3:
 			hp = 2
 			speed = 100
-			damage = 8
+			damage = 3
 			knockback_amount = 100
 			attack_size = 1.0 * (1 + player.spell_size)
 		4:
 			hp = 2
 			speed = 100
-			damage = 8
+			damage = 4
 			knockback_amount = 100
 			attack_size = 1.0 * (1 + player.spell_size)
 	
@@ -58,7 +58,6 @@ func enemy_hit(charge = 1):
 func _destroy_object():
 	# Desativa a sprite e interrompe a emissão de partículas
 	sprite.visible = false
-
 	# Aguarda um curto período para as partículas desaparecerem
 	await get_tree().create_timer(1.0).timeout
 	queue_free()
