@@ -5,11 +5,13 @@ extends Area2D
 @export var speed = 300.0  # Velocidade do laser
 @export var attack_duration = 2.0  # Duração máxima
 @export var attack_size = 1.0  # Tamanho inicial do ataque
+@export var scale_increase_factor = 2.0  # Fator de aumento da escala
 
 var attack_direction = Vector2.ZERO  # Direção inicial do laser
 
 @onready var collision_shape = $CollisionShape2D
 @onready var snd_attack = $snd_attack
+@onready var sprite = $Sprite2D  # Referência ao Sprite do laser
 
 # Configurar a referência ao jogador
 func set_target(player):
@@ -42,6 +44,9 @@ func _ready():
 	snd_attack.play()
 	update_attack()
 
+	# Aumentar a escala do sprite gradualmente
+	scale_sprite()
+
 	# Timer para controlar o tempo de vida
 	var timer = Timer.new()
 	add_child(timer)
@@ -65,6 +70,12 @@ func update_attack():
 	# Configurar o tamanho inicial do ataque
 	collision_shape.scale = Vector2.ONE * attack_size
 
+func scale_sprite():
+	# Criar um Tween usando o método create_tween()
+	var tween = create_tween()  # Aqui estamos criando o tween no nó atual (Area2D)
+	# Aumentar a escala do sprite ao longo do tempo usando o Tween
+	tween.tween_property(sprite, "scale", Vector2.ONE * scale_increase_factor, 0.75)
+
 func _on_attack_timeout():
 	# Remover o laser após o tempo configurado
 	queue_free()
@@ -74,4 +85,3 @@ func _on_body_entered(body):
 		print("Laser hit:", body)
 		print(damage)
 		body.take_damage(damage)  # Aplica dano no inimigo
-

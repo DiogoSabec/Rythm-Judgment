@@ -24,9 +24,8 @@ autostart = true
 [node name="snd_attack" type="AudioStreamPlayer2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(3, 1)
 rotation = -0.785397
-scale = Vector2(0.107674, 0.107674)
+scale = Vector2(1.14245, 1.18629)
 texture = ExtResource("2_heyrk")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
