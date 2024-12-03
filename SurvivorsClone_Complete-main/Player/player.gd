@@ -96,10 +96,10 @@ signal playerdeath
 
 func _ready():
 	# Carregar os tempos das notas
-	note_times_ice_spear = load_note_times("res://Audio/Musica/json/Piano.json")
-	note_times_tornado = load_note_times("res://Audio/Musica/json/Instrument2.json")
-	note_times_javelin = load_note_times("res://Audio/Musica/json/Instrument2.json")
-	note_times_tambor = load_note_times("res://Audio/Musica/json/Instrument2.json")
+	note_times_ice_spear = load_note_times("res://Audio/Musica/json/instrumento 2.json")
+	note_times_tornado = load_note_times("res://Audio/Musica/json/instrumento 3.json")
+	note_times_javelin = load_note_times("res://Audio/Musica/json/instrumento 1.json")
+  
 	is_playing = true  # Começar a reprodução
 
 	# Desbloquear as armas (se necessário)

@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://Player/Attack/tornado.gd" id="1_x0aq0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dd51k"]
+
 size = Vector2(20, 20)
 
 [node name="Tornado" type="Area2D" groups=["attack"]]
