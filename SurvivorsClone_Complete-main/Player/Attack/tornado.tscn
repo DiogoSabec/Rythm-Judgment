@@ -5,8 +5,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dd51k"]
 
-size = Vector2(20, 20)
-
 [node name="Tornado" type="Area2D" groups=["attack"]]
 top_level = true
 scale = Vector2(0.1, 0.1)
