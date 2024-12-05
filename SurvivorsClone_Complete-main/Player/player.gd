@@ -125,6 +125,8 @@ func _ready():
 	_on_hurt_box_hurt(0, 0, 0)
 
 func _physics_process(delta):
+	if is_paused:
+		return  # Sai da função _physics_process se o jogo está pausado
 	movement()
 
 	if is_playing:
@@ -485,13 +487,22 @@ func _input(event):
 		else:
 			_resume_game()
 
+var is_paused = false  # Variável para rastrear se o jogo está pausado
+var music_position = 0.0  # Para salvar a posição da música
+
 func _pause_game():
 	pause.visible = true
 	Engine.time_scale = 0
+	is_paused = true  # Marca que o jogo está pausado
+	music_position = music_player.get_playback_position()  # Salva a posição da música
+	music_player.stop()  # Para a música
 
 func _resume_game():
 	pause.visible = false
-	Engine.time_scale = 5
+	Engine.time_scale = 1
+	is_paused = false  # Marca que o jogo está ativo novamente
+	music_player.play()
+	music_player.seek(music_position)  # Retorna para a posição da música salva
 
 func load_note_times(json_path):
 	var file = FileAccess.open(json_path, FileAccess.READ)
