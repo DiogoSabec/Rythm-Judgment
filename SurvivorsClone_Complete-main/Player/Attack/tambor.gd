@@ -61,16 +61,16 @@ func update_tambor():
 			damage = 1
 			active_timer.wait_time = 5.0
 		2:
-			damage = 10
+			damage = 2
 			active_timer.wait_time = 4.0
 		3:
-			damage = 15
+			damage = 4
 			active_timer.wait_time = 3.5
 		4:
-			damage = 20
+			damage = 6
 			active_timer.wait_time = 3.0
 		5:
-			damage = 25
+			damage = 10
 			active_timer.wait_time = 2.5  # Tempo mínimo de 2.5 segundos
 
 	# Ajustar o raio do CollisionShape2D
