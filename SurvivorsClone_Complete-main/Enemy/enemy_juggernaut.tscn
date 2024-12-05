@@ -60,6 +60,7 @@ collision_mask = 5
 motion_mode = 1
 script = ExtResource("1_r5pfe")
 movement_speed = 40.0
+hp = 300
 knockback_recovery = 20.0
 experience = 100
 enemy_damage = 8
