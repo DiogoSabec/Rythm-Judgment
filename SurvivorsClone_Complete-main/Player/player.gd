@@ -493,6 +493,7 @@ func _resume_game():
 	pause.visible = false
 	Engine.time_scale = 1
 
+
 func load_note_times(json_path):
 	var file = FileAccess.open(json_path, FileAccess.READ)
 	if file:
