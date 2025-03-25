@@ -37,6 +37,8 @@ _By Diogo Sabec, credits to Aizin for the Template_
 - [Controls](#controls)
 
 ## [Development Timeline](#development-timeline)
+- [MVP](#minimum-viable-product)
+- [Beyond](#beyond-optional)
 
 ## Introduction
 
@@ -179,8 +181,8 @@ On top of the rigid pixel art constituting the rest of the art, a more smooth, h
 
 ### Beyond (Optional)
 
-- **additional feature 01** – lorem epsum
-- **additional feature 02** – lorem epsum
-- **additional feature 02** – lorem epsum
+- **additional feature 01** – lorem ipsum
+- **additional feature 02** – lorem ipsum
+- **additional feature 02** – lorem ipsum
 
 ---
