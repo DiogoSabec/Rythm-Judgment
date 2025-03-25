@@ -154,11 +154,13 @@ On top of the rigid pixel art constituting the rest of the art, a more smooth, h
 
 ### Controls
 
-**Keyboard:**  
-- Arrow Keys / WASD
+## **Keyboard:**  
+- Arrow Keys 
+- WASD
 
 **Gamepad:**  
 - D-Pad
+- Analogic stick
 
 ---
 
@@ -168,31 +170,17 @@ On top of the rigid pixel art constituting the rest of the art, a more smooth, h
 
 | # | Task | Type | Status | Finish By | Notes |
 |---|------|------|--------|-----------|-------|
-| 1 | Design Document | Other | ✅ Finished | Jun 22, 2022 |  |
-| 2 | Player & Wall Assets | Art | ✅ Finished | Jun 23, 2022 | Prototype complete |
-| 3 | Main Menu Theme | Audio | ✅ Finished | Jun 23, 2022 | Short loop |
-| 4 | UI/Main Menu | Coding | ✅ Finished | Jun 23, 2022 | Buttons, transitions |
-| 5 | Level Theme | Audio | ✅ Finished | Jun 24, 2022 | Not annoying |
-| 6 | Simple Player Movement | Coding | ✅ Finished | Jun 23, 2022 | Single cell movement |
-| 7 | Complex Player Movement | Coding | ✅ Finished | Jun 24, 2022 | Multi-cell logic |
-| 8 | Spikes & Holes | Coding | ✅ Finished | Jun 24, 2022 | Implement interactions |
-| 9 | Fruit Interaction | Coding | ✅ Finished | Jun 25, 2022 |  |
-|10 | Special Effects | Art | ✅ Finished | Jun 25, 2022 | Dust effects |
-|11 | Player Animation | Art | ✅ Finished | Jun 25, 2022 | Idle/move polish |
-|12 | Sound Effects | Audio | ✅ Finished | Jun 25, 2022 | Movement/UI feedback |
-|13 | Pause Menu | Coding | ✅ Finished | Jun 26, 2022 | Reset & return |
-|14 | Level Select Menu | Coding | ✅ Finished | Jun 26, 2022 |  |
-|15 | Levels 1–7 | Other | ✅ Finished | Jun 27, 2022 |  |
-|16 | Levels 8–15 | Other | ✅ Finished | Jun 28, 2022 |  |
-|17 | Extra Polish | Other | ✅ Finished | Jun 29, 2022 |  |
-|18 | Submit | Other | ✅ Finished | Jun 29, 2022 | Upload to Itch.io |
+| 1 | tbd | tbd | tbd | Dec 31, 2025 | tbd  |
+| 2 | tbd | tbd | tbd | Dec 31, 2025 | tbd  |
+| 3 | tbd | tbd | tbd | Dec 31, 2025 | tbd  |
+
 
 ---
 
 ### Beyond (Optional)
 
-- **Undo Feature** – Reverse any player action  
-- **Extra Levels** – Additional puzzles if time permits  
-- **Settings Menu** – ✅ Finished (volume slider, fullscreen toggle)
+- **additional feature 01** – lorem epsum
+- **additional feature 02** – lorem epsum
+- **additional feature 02** – lorem epsum
 
 ---
