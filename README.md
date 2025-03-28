@@ -13,11 +13,11 @@ This Github will show the principals of the legacy build of Rythm Judgement. Thi
 *Rythm Judgement* is a bullet-heaven game inspired bly classics, where you use the rythm of the music to exterminate the demons on our world.
 
 ## Links
-[Game design document](\docs\gdd.md)
+[Game design document](docs/gdd.md)
 
-[Tech](\docs\tech.md)
+[Tech](docs/tech.md)
 
-[Lore](\docs\lore.md)
+[Lore](docs/lore.md)
 
 ## Development Timeline
 
