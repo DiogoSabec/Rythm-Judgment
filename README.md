@@ -27,9 +27,9 @@ This Github will show the principals of the legacy build of Rythm Judgement. Thi
 
 | # | Task | Type | Status | Finish By | Notes |
 |---|------|------|--------|-----------|-------|
-| 1 | Finish Documentations | Design | in progress | Apr 4, 2025 |  |
-| 2 | Clean our current code | Programming | tbd | Apr 18, 2025 | |
-| 3 | Add the python notebook to the project, and make it automate the process of changing jsons | Programming | tbd | Apr 18, 2025 | |
+| 1 | [Finish Documentations](https://github.com/DiogoSabec/Rythm-Judgment/issues/6) | Design | in progress | Apr 4, 2025 |  |
+| 2 | [Clean our current code](https://github.com/DiogoSabec/Rythm-Judgment/issues/7) | Programming | tbd | Apr 15, 2025 | |
+| 3 | [Add the python notebook to the project, and make it automate the process of changing jsons](https://github.com/DiogoSabec/Rythm-Judgment/issues/8) | Programming | tbd | Apr 18, 2025 | |
 
 
 ---
