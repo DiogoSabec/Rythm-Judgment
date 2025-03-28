@@ -291,4 +291,3 @@ const UPGRADES = {
 		"type": "item"
 	}
 }
-

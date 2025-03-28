@@ -1,0 +1,1 @@
+This doc is not ready, but it will explain how the code works and how the project integrates the music with MIDI Files and making the opponent attacks on time.

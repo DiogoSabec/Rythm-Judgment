@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://dcyka5e06knff"]
 
-[ext_resource type="Script" path="res://TitleScreen/menu.gd" id="1_oi0p3"]
+[ext_resource type="Script" uid="uid://dam83xqn80v4w" path="res://TitleScreen/menu.gd" id="1_oi0p3"]
 [ext_resource type="FontFile" uid="uid://cb4e8g30xxp5u" path="res://Font/tenderness.otf" id="1_xdjxl"]
-[ext_resource type="Shader" path="res://TitleScreen/vhs.gdshader" id="2_fv4ow"]
+[ext_resource type="Shader" uid="uid://ch2a7d6wxy7hj" path="res://TitleScreen/vhs.gdshader" id="2_fv4ow"]
 [ext_resource type="PackedScene" uid="uid://b7c7gsdx2rkjm" path="res://Utility/basic_button.tscn" id="3_kwsdd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2agxi"]
