@@ -23,8 +23,6 @@ This Github will show the principals of the legacy build of Rythm Judgement. Thi
 
 ### Minimum Viable Product
 
-[IMPORTANT!] - Add tasks in github later
-
 | # | Task | Type | Status | Finish By | Notes |
 |---|------|------|--------|-----------|-------|
 | 1 | [Finish Documentations](https://github.com/DiogoSabec/Rythm-Judgment/issues/6) | Design | in progress | Apr 4, 2025 |  |
@@ -36,8 +34,6 @@ This Github will show the principals of the legacy build of Rythm Judgement. Thi
 
 ### Beyond (Optional)
 
-- **additional feature 01** – lorem ipsum
-- **additional feature 02** – lorem ipsum
-- **additional feature 02** – lorem ipsum
-
+- **Better Main menu** – add a fancier menu
+- **Options tab** – lorem ipsum
 ---
