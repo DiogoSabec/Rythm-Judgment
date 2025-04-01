@@ -1,8 +1,7 @@
-Absolutely! Here's an expanded and enriched version of the **Rythm Judgement** lore in English, with deeper worldbuilding, more emotional and thematic layers, and a touch of mythical weight to the events. Let me know if you'd prefer a version in Portuguese too.
-
----
 
 # Rythm Judgement
+
+[PT-BR Lore](/docs/lorePtBr.md)
 
 **Rythm Judgement** is an RPG, roguelike, bullet heaven game, heavily inspired by *Vampire Survivors*. It introduces key mechanics in a fresh way, using **music** not only as a theme, but as a divine weapon and spiritual force.
 
@@ -48,7 +47,3 @@ A cursed song composed from a blend of divine and infernal notes. Playing it can
 - **The Echo String**: A guitar string made from angelic hair, amplifies righteous fury.
 - **Choir’s Tear**: A crystal left behind by a fallen seraph, lets Magnus summon celestial harmonies.
 - **The Metronome of Judgement**: Keeps perfect rhythm even in chaos; grants invincibility if used with flawless timing.
-
----
-
-Would you like help creating Magnus's character profile, boss concepts, skill trees based on instruments, or a map of the world next?

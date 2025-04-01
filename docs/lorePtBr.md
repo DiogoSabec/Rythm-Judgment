@@ -1,4 +1,5 @@
 # Rythm Judgement
+[EN Lore](/docs/lore.md)
 
 **Rythm Judgement** é um jogo de RPG, roguelike e bullet heaven, fortemente inspirado por *Vampire Survivors*. Ele apresenta mecânicas clássicas de forma inovadora, utilizando **a música** não apenas como tema, mas como arma divina e força espiritual.
 
