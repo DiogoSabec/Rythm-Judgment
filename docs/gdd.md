@@ -169,26 +169,18 @@ The game uses a **top-down 2D camera**, similar to *Vampire Survivors* or *Enter
 
 ```mermaid
 flowchart TD
-    A[Start Run] --> B[Spawn with 1 Instrument]
+    A[Start Run] --> B[Spawn with Base Instrument]
     B --> C[Enemies Spawn in Waves]
-    C --> D[Auto-Attacks Trigger in Sync with Music]
-    D --> E[Player Gains XP]
-    E --> F[Level Up]
-    F --> G{Choose Upgrade}
-    G -->|New Instrument| H[Add Layer to Music + New Attack]
-    G -->|Upgrade Instrument| I[Enhance Instrument & Beat Effects]
-    H --> J[More Enemies + Music Intensifies]
-    I --> J
-    J --> K[Trigger Combos / Beat Bonuses]
-    K --> L[Continue Surviving]
-    L --> C
-    L --> M{Boss Appears?}
-    M -->|No| C
-    M -->|Yes| N[Beat-Synced Boss Fight]
-    N --> O[Victory or Death]
-    O --> P[End of Run Stats & Unlocks]
-    P --> A
+    C --> D[Auto-Attacks Sync with Music]
+    D --> E[Gain XP and Level Up]
+    E --> F[Choose New Instrument or Upgrade]
+    F --> G[Music Evolves + Stronger Attacks]
+    G --> H[Survive Increasing Waves]
+    H --> I["Boss Fight (optional)"]
+    I --> J[End Run & Unlock Rewards]
+    J --> A
 ```
+
 ---
 
 ### UI  
