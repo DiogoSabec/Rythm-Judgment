@@ -25,7 +25,7 @@ Install the required Python packages using pip:
 ```bash
 pip install pretty_midi midi2audio
 ```
-*Note:* The code now uses ffmpeg directly via the subprocess module, so there is no dependency on pydub.
+*Note:* The code now calls ffmpeg directly via the subprocess module, so there is no dependency on pydub.
 
 ---
 
@@ -54,13 +54,23 @@ pip install pretty_midi midi2audio
 
 ---
 
-#### SoundFont File
+#### Downloading the FluidR3_GM.sf2 SoundFont
 
-Your script requires a SoundFont file (e.g., `FluidR3_GM.sf2`) for FluidSynth to generate audio. You can obtain a SoundFont file from sources such as:
-- [FluidR3_GM.sf2 from Musical Artifacts](https://musical-artifacts.com/)
-- Other free SoundFont libraries available online.
+Your script requires a SoundFont file (e.g., **FluidR3_GM.sf2**) for FluidSynth to generate audio. You can download FluidR3_GM.sf2 from one of these sources:
 
-Once you have the SoundFont file, update the `SOUND_FONT_PATH` variable in your script to point to its location:
+- **Musical Artifacts:**  
+  [Download FluidR3_GM.sf2](https://musical-artifacts.com/artifacts/82)
+  
+- **Other Sources:**  
+  You can also search online for "FluidR3_GM.sf2 download" to find additional sources.
+
+Once downloaded, extract the file to a location of your choice.
+
+---
+
+#### SoundFont File Configuration
+
+After obtaining the FluidR3_GM.sf2 file, update the `SOUND_FONT_PATH` variable in your script to point to its location:
 ```python
 SOUND_FONT_PATH = "C:\\path\\to\\your\\FluidR3_GM.sf2"  # Update this to your SoundFont file path
 ```
@@ -96,5 +106,4 @@ Since pydub is no longer used, ffmpeg will be called directly via Python’s sub
 - **Folder Structure:**  
   The output is organized into separate folders for MIDI files, JSON files, and MP3 files.
 
-# Sync with the engine
-For this, we will need the code to be re-written. Will be done in the next week.
+Happy coding and enjoy syncing your music with Godot!
